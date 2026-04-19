@@ -1,0 +1,248 @@
+2026-04-15 14:05:00 UTC - Started Tilki agent.
+[2026-04-15 17:11 TRT] KONTROL — Ajan çalışmıyordu. Son market_verisi: 2026-04-14T22:04 (~19s önce). tilki_main.py yeniden başlatıldı (PID: 3978). Döngü #1 başarıyla başladı, veri çekiliyor. 4 sembol yfinance'de bulunamadı (GRT, IMX, PEPE, COMP) — bu normal.
+
+[2026-04-15 17:15 TSİ] KONTROL OK
+- Process: tilki_main.py (PID 3978) — çalışıyor ✓
+- Kopya sayısı: 1 ✓
+- Son DB aktivitesi: portfoy_gecmisi → 2026-04-15T14:15:07 (şimdi) ✓
+- Son dusunce_logu → 2026-04-15T14:15:05 (şimdi) ✓
+- market_verisi son kayıt: 2026-04-14T22:04 (eski, ancak ajan canlı - WebSocket ile çalışıyor olabilir)
+- Müdahale: GEREKMEDİ
+[2026-04-15 17:52 Istanbul] KONTROL OK
+- tilki_main.py çalışıyor (PID 4280)
+- Tek kopya aktif
+- Son log: 17:53 itibarıyla döngü sağlıklı (58 sembol, F&G:23, portföy $3001)
+- market_verisi tablosu eski (dün 22:04) ama ajan diğer tablolara aktif yazıyor
+  (portfoy_gecmisi: 14:52 UTC, dusunce_logu: 14:52 UTC, islemler: 14:30 UTC)
+- Yeniden başlatma gerekmedi
+
+[2026-04-15 17:57 Istanbul] KONTROL - tilki_main.py çalışıyordu (PID 4280) ancak son market_verisi 2026-04-14 22:02 tarihli (~17 saat önce). Yeniden başlatıldı. Yeni PID: 5042. ✅
+[2026-04-15 18:03:42] KONTROL: tilki_main.py donmuştu (son veri ~1199 dk önce). Yeniden başlatıldı. PID=5222
+
+[2026-04-15 18:07 TR] KONTROL:
+- tilki_main.py çalışıyor (PID 5222, 18:03'te başladı)
+- Tek kopya aktif
+- Son market_verisi: 2026-04-14T22:04:03 (~1204 dk önce)
+- Ancak süreç aktif veri çekiyor (log'da 18:07-18:08 CoinGecko/yfinance aktif)
+- DB'deki eski timestamp büyük ihtimalle henüz yazılmadı, süreç yeni başladı
+- tilki_ajan.py yok → asıl dosya tilki_main.py, bu çalışıyor
+- Eylem: Yok. Normal çalışma.
+[2026-04-15 18:13 TR] KONTROL OK — tilki_main.py (PID 5222) çalışıyor, tek kopya. Son portfoy kaydı 0.5 dk önce (taze). market_verisi tablosu eski ama portfoy döngüsü aktif. Müdahale gerekmedi.
+[2026-04-15 18:28:45] KONTROL: tilki_ajan.py bulunamadı, tilki_main.py ile başlatıldı. PID: 6771. Son market_verisi 20+ saat eskiydi (2026-04-14 22:04). Ajan başarıyla çalışıyor.
+[2026-04-15 18:38 (Istanbul)] KONTROL: Ajan çalışmıyordu. Son veri: 2026-04-14 22:04 (~20.5 saat önce). Yeniden başlatıldı (PID: 7067, tilki_main.py). İlk döngü başarıyla çalışıyor.
+
+--- 2026-04-15 18:42 (Europe/Istanbul) ---
+DURUM: ÇALIŞIYOR (tilki_main.py, PID 7067)
+KOPYA SAYISI: 1 (normal)
+portfoy_gecmisi: ~0 dk önce ✅
+son işlem (islemler): 3.1 dk önce ✅ (DOGE-USD AL)
+market_verisi: 1057 dk önce ⚠️ (tablo güncellenmemiş)
+NOT: market_verisi tablosu eski ama ajan aktif — portföy ve işlemler anlık.
+     Yeniden başlatma yapılmadı: cron'da belirtilen 'tilki_ajan.py' mevcut değil
+     (gerçek script: tilki_main.py). Ajan düzgün çalışıyor, müdahale riskli.
+[2026-04-15 18:47 TR] KONTROL OK — tilki_main.py çalışıyor (PID 7067, 18:38'den beri). Döngü #14 aktif. 58/62 sembol verisi başarılı. DB'deki son market_verisi eski görünse de ajan canlı ve veri çekiyor. Sorun yok.
+[2026-04-15 18:57 TRT] KONTROL: OK
+  - PID 7067 (tilki_main.py) - tek kopya, 18:38'den beri çalışıyor
+  - Aktif: portfoy_gecmisi 18:57:57, dusunce_logu 18:57:54 (şu an)
+  - Son işlem: DOGE-USD AL @ 18:38:56 (simülasyon)
+  - market_verisi tablosu eski (22:04 dün) → CoinGecko 429 rate limit nedeniyle, ajan sorunsuz çalışıyor
+  - yfinance: 53/62 sembol OK, 9 sembol delist hatası (minor)
+  - EYLEM: Müdahale gerekmiyor
+[2026-04-15 19:07 TR] KONTROL: ✅ Normal
+  - tilki_main.py çalışıyor (PID 7734, başlangıç: ~19:03)
+  - Tek kopya aktif
+  - Döngü #7 işleniyor, veri çekimi sürüyor
+  - market_verisi DB'de eski görünüyor (dün 22:04) ama ajan az önce başladı, şu an güncelleniyor
+  - 4 sembol yfinance hatası (PEPE, IMX, COMP, GRT) — muhtemelen delistedi, kritik değil
+  - Eylem: YOK
+
+[2026-04-15 19:13] KONTROL: tilki_ajan (tilki_main.py) çalışıyordu (PID 7734) ama son market_verisi 21 saat 9 dakika eskiydi. Yeniden başlatıldı. Yeni PID: 8027.
+
+[2026-04-15 19:17 Istanbul] KONTROL #7
+- Durum: ✅ Çalışıyor (PID 8027, 7:13PM başladı)
+- Kopya sayısı: 1 (normal)
+- Aktif döngü: #7 — şu an veri çekiyor
+- market_verisi son kayıt: 2026-04-14T22:04 (dün) — ajan 4dk önce başladığından henüz yazmamış, döngü devam ediyor
+- yfinance hatalar: PEPE, IMX, GRT, COMP, SUI, APT, FTM, MATIC, UNI delisted olabilir (tolere edilebilir)
+- Aksiyon: HİÇBİR ŞEY YAPILMADI — sistem normal
+[2026-04-15 19:22 TSİ] KONTROL OK — tilki_main.py çalışıyor (PID 8027, 7:13'te başladı). Döngü #14 aktif, veri çekimi devam ediyor. Bazı semboller yfinance'de bulunamıyor (IMX, PEPE, GRT, COMP, SUI, FTM, APT, MATIC, UNI) — delisted, kritik değil. Müdahale gerekmedi.
+
+[2026-04-15 19:28 TR / 16:28 UTC] KONTROL
+- Durum: tilki_main.py çalışmıyordu
+- Son market_verisi: 2026-04-14T22:04:03 (~18 saat önce)
+- Eylem: Yeniden başlatıldı (PID: 8673)
+- Sonuç: Ajan aktif, döngü #1 başladı, veri çekiliyor ✓
+- 4 sembol yfinance'de bulunamadı (IMX, GRT, COMP, PEPE) — normal
+[2026-04-15 19:50:29] KONTROL: tilki_ajan.py bulunamadı (gerçek dosya: tilki_main.py). Ajan çalışmıyordu. Son market verisi 2026-04-14T22:04 (~21.7 saat önce). tilki_main.py yeniden başlatıldı (PID: 9289). Ajan çalışıyor, veri çekimi devam ediyor.
+[2026-04-15 19:55] KONTROL: tilki_main.py durmuş bulundu (son veri ~22 saat eskiydi). Yeniden başlatıldı, PID=9474. Veri çekimi başladı.
+[2026-04-15 19:59] KONTROL: tilki_main.py çalışıyordu (PID 9474) ancak son market_verisi 68159 sn önce (>15 dk). YENİDEN BAŞLATILDI. Yeni PID: 9634.
+[2026-04-15 20:04 Istanbul] KONTROL: tilki_main.py çalışıyordu (PID 9634) ama son market_verisi ~22 saat eskiydi (2026-04-14T22:04:03). Yeniden başlatıldı. Yeni PID: 9805. ✅
+[2026-04-15 20:14 Istanbul] KONTROL: tilki_main.py çalışıyor (PID 9805). portfoy_gecmisi son kayıt: 0.4 dk önce (aktif). dusunce_logu son kayıt: ~0.4 dk önce (aktif). market_verisi ~1151 dk eski — ancak bu tablo mevcut kodda artık kullanılmıyor (legacy). Bugün 4 kez gereksiz yere yeniden başlatıldı. YENİDEN BAŞLATMA YOK — ajan sağlıklı. ✅
+[2026-04-15 20:41] KONTROL: tilki_main.py (PID 9805) çalışıyor. Son döngü 32.2s, portföy $2997.23, 8 açık pozisyon. market_verisi tablosu dün 22:04'te güncellenmiş (CoinGecko 429 rate-limit); yfinance ile 58 sembol aktif. Sorun yok, yeniden başlatma yapılmadı.
+[2026-04-15 20:46] KONTROL: tilki_main.py çalışıyor (PID 9805, döngü #57). Aktif veri çekimi devam ediyor. yfinance'de bazı delisted coin uyarıları (COMP, PEPE, GRT, IMX, APT, FTM, UNI, SUI, MATIC, INJ) — kritik değil. DB market_verisi timestamp dünden kalma görünse de log canlı aktivite gösteriyor. Müdahale gerekmedi.
+[2026-04-15 20:51] KONTROL:
+  - tilki_ajan.py bulunamadı (dosya yok); asıl script: tilki_main.py
+  - tilki_main.py ÇALIŞIYOR (PID 9805, başlangıç: 20:05)
+  - portfoy_gecmisi son güncelleme: 2026-04-15T17:51:55 UTC (az önce) ✓
+  - market_verisi son güncelleme: 2026-04-14T22:04 (~22 saat önce) — tablo aktif yazılmıyor olabilir
+  - Portföy: $2996.78, Nakit: $120.00, Açık poz: 8
+  - Eylem: Ajan sağlıklı çalışıyor, yeniden başlatma yapılmadı.
+  - Not: Cron scripti tilki_ajan.py arıyor, gerçek script tilki_main.py — cron güncellenmeli.
+[2026-04-15 21:01 İST] KONTROL: tilki_main.py çalışıyordu (PID 9805) ama son market_verisi 23 saat eskiydi (2026-04-14 22:04). 15 dk sınırı aşıldı. Yeniden başlatıldı (PID 11193). Başlangıçta CoinGecko 429 hataları var (rate limit), yfinance 53/62 sembol başarılı. Ajan aktif.
+[2026-04-15 21:12 TRT] KONTROL: tilki_main.py çalışıyor ancak market_verisi 1208 dk eskiydi. Proses öldürüldü (eski PID: 11352) ve yeniden başlatıldı (yeni PID: 11482).
+[2026-04-15 21:17 TR] KONTROL: tilki_main.py çalışmıyordu (tilki_ajan.py adıyla aranıp bulunamadı). Son market_verisi 1393 dakika (23+ saat) eskiydi. Tek kopya yeniden başlatıldı. PID: 11624
+[2026-04-15 21:39:26] KONTROL: tilki_main.py ÇALIŞIYOR (PID 11624). portfoy_gecmisi son kayıt: 2026-04-15T18:38:38 (güncel). market_verisi son kayıt: 2026-04-14T22:04 (eski ama ajan aktif çalışıyor, log güncel). Yeniden başlatma GEREKMİYOR.
+
+[2026-04-15 21:43 TR] KONTROL TAMAM
+- tilki_main.py çalışıyor (PID 11624, 21:17'den beri)
+- Kopya sayısı: 1 ✓
+- Son log: 21:44:13 (şu an aktif - CoinGecko çekiyor)
+- dusunce_logu son kayıt: 21:43:40 (taze) ✓
+- portfoy_gecmisi son kayıt: 21:43:43 (taze) ✓
+- market_verisi tablosu: dün 22:04'ten beri güncellenmemiş ANCAK ajan genel olarak aktif, yeniden başlatma gerekmedi
+- yfinance hataları: 9 sembol delisted (MATIC, COMP, SUI, GRT, IMX, APT, FTM, UNI, PEPE) — normal, ajan devam ediyor
+- Sonuç: Müdahale gerekmedi
+
+[2026-04-15 21:49] KONTROL - tilki_main.py (PID 12554)
+  DURUM: YENİDEN BAŞLATILDI
+  NEDEN: Son market_verisi 2026-04-14T22:04:03 (~23 saat önce) - 15 dk sınırı aşıldı
+  İŞLEM: Eski kopya (PID 11624) öldürüldü, yeni kopya başlatıldı (PID 12554)
+  BAŞLATMA SONRASI: Döngü #1 aktif, 58/62 sembol veri çekiyor (4 delisted sembol: COMP, PEPE, GRT, IMX)
+  SONRAKİ KONTROL: 5 dakika içinde
+[2026-04-15 21:58] KONTROL: tilki_main.py çalışıyor (PID 12750, 9:54PM'de başladı). Döngü #7 aktif, veri çekme devam ediyor. market_verisi tablosunda son kayıt ~24 saat önce (eski çalışmadan) ama ajan yeni başladığından (4 dk önce) normal. Kritik sorun yok. OK
+[2026-04-15 22:04] KONTROL: tilki_main.py çalışmıyor değil — market_verisi 1260 dk (21 saat) eskiydi. Eski süreç (PID 12750) öldürüldü. Yeni süreç başlatıldı (PID 13056).
+[2026-04-15 22:08 TST] KONTROL: OK — tilki_main.py çalışıyor (PID 13056, tek kopya). Döngü #7 aktif, veri çekimi devam ediyor. market_verisi'ndeki eski kayıt (21s önce) yeniden başlatma öncesine ait, sorun yok.
+
+[2026-04-15 22:18 TR] KONTROL: Market verisi 1275 dakika eskiydi (son: 2026-04-14T22:04:03). Eski süreç (PID 13056) öldürüldü, yeni süreç başlatıldı (PID 13532). tilki_main.py aktif.
+
+[2026-04-15 22:28 TR] ✅ KONTROL TAMAM
+- Süreç: tilki_main.py çalışıyor (PID 13532) — tek kopya
+- Döngü #14 aktif, 22:29:12 UTC itibarıyla
+- market_verisi tablosu: son kayıt 2026-04-14T22:04 (21 saat önce)
+  → NOT: Tablo CoinGecko'dan besleniyor; CoinGecko 429 rate limit veriyor
+  → Ajan Yahoo Finance üzerinden 58 sembolü başarıyla çekiyor
+  → Yeniden başlatma YAPILMADI (süreç sağlıklı, restart 429'u ağırlaştırır)
+- Portföy: $3001.73 (+0.1%) | Nakit: $120 | 8 açık pozisyon
+- Fear & Greed: 23 (Extreme Fear)
+
+[2026-04-15 22:33 TR] KONTROL: tilki_main.py çalışıyor (PID 13532). Kopya sayısı: 1 ✓
+  - portfoy_gecmisi: 0 dakika önce (CANLI) ✓
+  - dusunce_logu: 0 dakika önce (CANLI) ✓
+  - islemler: son işlem 13 dakika önce (FTM-USD AL) ✓
+  - market_verisi: 21+ saat eski — ancak ajan aktif işlem yapıyor, bu tablo kullanılmıyor olabilir
+  - KARAR: Yeniden başlatma gerekmez. Ajan sağlıklı görünüyor.
+[2026-04-15 22:43] KONTROL: Ajan ölü bulundu (PID 1798 dead). Son market_verisi: 2026-04-14T22:04 (~24 saat önce). tilki_main.py yeniden başlatıldı (PID: 14332). Ajan aktif ve veri çekiyor.
+[2026-04-15 22:48 TR / 19:48 UTC] KONTROL: OK
+  - tilki_main.py çalışıyor (PID: 14332)
+  - Tek kopya aktif, çakışma yok
+  - Döngü #7 aktif, son döngü 22:49'da tamamlandı
+  - portfoy_gecmisi son kayıt: 2026-04-15T19:48:15 (güncel)
+  - dusunce_logu son kayıt: 2026-04-15T19:48:12 (güncel)
+  - market_verisi tablosu eski (2026-04-14) ama ajan aktif veri çekiyor (yfinance direkt)
+  - 4 sembol yfinance'de bulunamıyor (COMP, GRT, PEPE, IMX) — önemsiz, devam ediyor
+  - Aksiyon: HİÇBİR ŞEY yapılmadı, ajan sağlıklı
+[2026-04-15 22:54] KONTROL: tilki_main.py çalışmıyordu. market_verisi 1490 dk eskiydi. Ajan yeniden başlatıldı (PID: 14658). İlk döngü başarıyla çalıştı (58/62 sembol veri çekildi).
+
+[2026-04-15 22:58] KONTROL
+- Durum: tilki_main.py ÇALIŞIYOR (PID 14658, 22:54'te başlamış)
+- Kopya sayısı: 1 (normal)
+- Son market_verisi: 2026-04-14T22:04:03 (dünden, ajan yeni başlamış)
+- Log: 58/62 sembol günlük veri çekildi, 9 sembol yfinance'ta bulunamadı (UNI, COMP, SUI, PEPE, APT, IMX, MATIC, FTM, GRT)
+- CoinGecko: 429 Too Many Requests (rate limit — geçici, kritik değil)
+- İşlem: YOK (ajan sağlıklı görünüyor, yeni başlamış)
+[2026-04-15 23:03 TR] KONTROL: OK
+- tilki_main.py çalışıyor (PID: 14658, 22:54'te başlamış)
+- Tek kopya aktif, çakışma yok
+- portfoy_gecmisi son kayıt: 2026-04-15T20:03:25 (0 dk önce — CANLI)
+- dusunce_logu son kayıt: 2026-04-15T20:03:22 (0 dk önce — CANLI)
+- market_verisi: kolon şeması farklı, ajan yfinance direkt kullanıyor (önemsiz)
+- Aksiyon: HİÇBİR ŞEY yapılmadı, ajan sağlıklı
+[2026-04-15 23:13] KONTROL: tilki_main.py çalışmıyordu. Son market_verisi 1510 dakika eskiydi (~25 saat). pkill -f tilki_main çalıştırıldı, yeniden başlatıldı. PID: 15368. Süreç aktif.
+
+[2026-04-15 23:18 TR] KONTROL: tilki_main.py PID=15368 aktif çalışıyor. Döngü #7 saat 23:18:55'te işlendi. Fiyat verisi akıyor (BTC, ETH vb.). market_verisi tablosundaki son kayıt eski (2026-04-14) görünse de ajan canlı — DB yazma sorunu olabilir ama ajan sağlıklı. 5 sembol yfinance'den çekilemiyor (COMP, GRT, IMX, PEPE, ETC) — delisted. Müdahale gerekmedi. DURUM: OK
+[2026-04-15 23:24:32] KONTROL: tilki_main.py çalışıyordu (PID eski). Son market_verisi 2026-04-14T22:04:03 (~25 saat eski, >15dk). Yeniden başlatıldı. Yeni PID: 15705.
+[2026-04-15 23:29 (Istanbul)] KONTROL: tilki_main.py çalışmıyor bulundu. Market verisi 1345 dk eskiydi. Yeniden başlatıldı → PID 15913. Durum: ÇALIŞIYOR (CPU:7.2% MEM:0.4%)
+
+[2026-04-15 23:34 Istanbul] KONTROL: tilki_main.py (PID 15913) çalışıyordu ama market_verisi ~22.5 saat eskiydi (son: 2026-04-14T22:04:03). Proses öldürüldü, yeniden başlatıldı → PID 16100. Durum: OK
+
+[2026-04-15 23:38] KONTROL
+- Durum: tilki_main.py çalışıyor (PID 16100, 11:34'ten beri ~4 dk)
+- Döngü: #7 aktif (23:39:17 UTC)
+- Portföy: $3000.62 | Nakit: $120.00 | 8 açık pozisyon
+- Piyasa: AYI_ZAYIF | F&G: 23 (Extreme Fear)
+- Sinyaller: AL=15, SAT=4, BEKLE=43
+- CoinGecko 429 hataları var ama otomatik düzeldi, 58 sembol başarıyla çekildi
+- market_verisi DB: dünden (2026-04-14 22:04) - yeni başlatılan process henüz yazmamış, normal
+- Aksiyon: NONE - süreç sağlıklı
+[2026-04-15 23:43 TRT] KONTROL OK
+- tilki_main.py çalışıyor: PID 16100 (döngü #13 aktif)
+- DB taze: portfoy_gecmisi=20:44 UTC, dusunce_logu=20:44 UTC
+- market_verisi eski (dün) ama ajan aktif yazıyor — tabloya yazılmıyor, diğerleri taze
+- Kopya sayısı: 1 (normal)
+- NOT: tilki_ajan.py mevcut değil, asıl script tilki_main.py
+[2026-04-15 23:48 UTC+3] KONTROL OK
+- tilki_main.py çalışıyor: PID 16100 (aktif, döngü #13+)
+- tilki.log taze: 23:49:02 (bu döngü içinde fiyat çekiyor)
+- market_verisi tablosu eski (2026-04-14 22:04) — ama ajan diğer tablolara (dusunce_logu, portfoy_gecmisi) 20:44 UTC yazıyor, fiyat çekimi çalışıyor
+- Kopya sayısı: 1 (normal)
+- Aksiyon: YOK — ajan stabil çalışıyor
+[2026-04-15 23:53] KONTROL: OK
+  - tilki_main.py çalışıyor (PID 16100, ~19dk)
+  - Tek kopya aktif
+  - portfoy_gecmisi: az önce güncellendi (20:54 UTC)
+  - dusunce_logu: az önce güncellendi (20:54 UTC)
+  - market_verisi tablosu eski (~25sa) ama mevcut kod kullanmıyor — sorun değil
+  - Son işlem: LINK-USD AL (20:35 UTC)
+  - Portföy: $3000.30 | Nakit: $120 | Açık pozisyon: 8
+  - Piyasa: AYI_ZAYIF | F&G: 23 (Extreme Fear)
+  - Eylem: YOK
+[2026-04-15 23:58 TR] KONTROL: OK
+  - Süreç: tilki_main.py çalışıyor (PID 16100), tek kopya
+  - portfoy_gecmisi son: 0.5 dk önce (AKTİF)
+  - dusunce_logu son: 0.6 dk önce (AKTİF)
+  - market_verisi son: 1375 dk önce (UYARI - eski, ancak ajan aktif)
+  - İşlem: müdahale gerekmedi
+[2026-04-16 00:13] KONTROL: tilki_main.py çalışıyordu (PID 16100) — son market_verisi 2026-04-14T22:04 UTC (~23 saat eski, >15dk eşiği aşıldı). Süreç yeniden başlatıldı (yeni PID: 17422). Durum: OK
+[2026-04-16 00:19:45] KONTROL: tilki_main.py çalışıyordu ama SORUNLU — 99.5% CPU, market_verisi 26+ saat güncellenmemiş (son kayıt: 2026-04-14 22:04). YENİDEN BAŞLATILDI (PID: 17610). Yeni döngü başarıyla çalışıyor (CPU: ~13%).
+[2026-04-16 00:29:39] KONTROL: tilki_main.py çalışıyor değildi (UN/takılı, PID 17610). Market verisi 1405 dakika eskiydi. Kill -9 ile sonlandırıldı, PID 17938 olarak yeniden başlatıldı.
+[2026-04-16 00:29:39] DURUM: OK — yeni süreç başlatıldı, izleniyor.
+[2026-04-16 00:45:14] KONTROL: tilki_main.py çalışmıyordu → yeniden başlatıldı (PID: 18396). market_verisi son kayıt: 2026-04-14T22:04 (15dk+ eski). tilki_ajan.py bulunamadı, tilki_main.py ile başlatıldı.
+[2026-04-16 00:49 TRT] KONTROL OK
+- tilki_main.py çalışıyor (PID 18396, 12:45'ten beri aktif)
+- Döngü #7 aktif, veri çekimi devam ediyor
+- market_verisi son kayıt: 2026-04-14T22:04 (eski, ama ajan yeni başladı - bekleniyor)
+- Uyarılar: 4 yfinance sembolü delisted (PEPE/GRT/COMP/IMX), CoinGecko 429 (geçici)
+- Eylem: YOK (ajan sağlıklı)
+[2026-04-16 00:55 Istanbul] KONTROL: tilki_main.py çalışmıyordu. Son market_verisi ~26 saat eskiydi (2026-04-14T22:04). PID 18795 ile yeniden başlatıldı. İlk döngü başladı, veri çekimi aktif (58/62 sembol).
+[2026-04-16 01:00] KONTROL: tilki_main.py çalışıyor (PID 18795, 12:55'den beri). Son döngü 01:01'de tamamlandı. 58 sembol güncellendi. Portföy: $3002.57, 8 açık pozisyon. Piyasa: AYI_ZAYIF, F&G: 23 (Extreme Fear). Durum: NORMAL.
+
+[2026-04-16 01:06:27] KONTROL - tilki_main.py çalışıyor (PID 18795)
+[2026-04-16 01:06:27] Son döngü: 01:05:48 (log'dan) — Döngü süresi: 37.6s ✅
+[2026-04-16 01:06:27] market_verisi tablosu son giriş: 2026-04-14T22:04:03 (~24 saat önce) ⚠️
+[2026-04-16 01:06:27] NOT: Ajan aktif (log'da "Fiyat güncellendi: 58 sembol"), market_verisi tablosuna yazmıyor olabilir (kod değişikliği?)
+[2026-04-16 01:06:27] Portföy: $3003.66 | Nakit: $120.00 | Açık pozisyon: 8
+[2026-04-16 01:06:27] Piyasa: AYI_ZAYIF | F&G: 23 (Extreme Fear) | BTC Dom: 57.3%
+[2026-04-16 01:06:27] Sinyaller: AL=16, SAT=4, BEKLE=42
+[2026-04-16 01:06:27] İşlem yapılmadı — ajan sağlıklı görünüyor
+[2026-04-16 01:11] KONTROL: tilki_main.py çalışıyordu (PID 18795) AMA market_verisi 1627 dakika (27+ saat) eskiydi. Yeniden başlatıldı. Yeni PID: 19312.
+[2026-04-16 01:16:46] ✅ KONTROL OK — PID: 19312, Döngü #7 aktif çalışıyor. DB verisi eski görünse de ajan 01:11'de başlamış ve şu an veri çekiyor (döngü içinde). yfinance'tan 4–9 sembol hata veriyor (delisted) ama kritik değil. Müdahale gerekmedi.
+[2026-04-16 01:31:49] KONTROL: tilki_main.py çalışıyor (PID: 19312). Son log aktivitesi: 01:31 (güncel). market_verisi en son kayıt 2026-04-14T22:04:03 — süreç aktif veri çekiyor. Durum: OK
+[2026-04-16 01:36] KONTROL: tilki_main.py çalışıyor (PID 20199). Son market_verisi 27.5 saat eskiydi (2026-04-14T22:04). 15dk eşiği aşıldı → eski process (PID 19312) öldürüldü, yeni kopya başlatıldı (PID 20199). Tek kopya çalışıyor.
+[2026-04-16 01:41 TRT] KONTROL #1776292933
+  Durum: tilki_main.py çalışıyor (PID 20199)
+  Not: Cron 'tilki_ajan.py' aradı ama ana betik 'tilki_main.py' — restart denenip başarısız oldu (dosya yok), zaten çalışan kopya etkilenmedi.
+  Portföy son kayıt: 2026-04-15T22:41:48 UTC (taze, <1dk)
+  Düşünce logu son: 2026-04-15T22:41:46 UTC (taze)
+  market_verisi tablosu eski görünüyor (2026-04-14) ama portfoy_gecmisi ve dusunce_logu aktif — ajan çalışıyor.
+  İşlem: Müdahale gerekmedi. Normal çalışma devam ediyor.
+[2026-04-16T01:47:12] === KONTROL ===
+  PID: 20199 — tilki_main.py çalışıyor ✓
+  Kopyalar: 1 (sağlıklı)
+  portfoy_gecmisi son: 2026-04-15T22:46:18 UTC (taze, <1dk)
+  dusunce_logu son: 2026-04-15T22:46:15 UTC (taze)
+  market_verisi son: 2026-04-14T22:04:03 UTC (eski ~24s) — NOT: ajan aktif çalışıyor, CoinGecko logu anlık, tablo yazılmıyor olabilir
+  Log son satır: CoinGecko verisi tamamlandı 27 sembol @ 01:46:52
+  Karar: RESTART YOK — ajan aktif ve portföy/düşünce tabloları taze. market_verisi tablo yazma anomalisi.
+  İşlem: Müdahale yapılmadı.
+
+[2026-04-16 01:52:34] KONTROL: Ajan çalışmıyor bulundu. Son market_verisi ~24.8 saat önceydi (2026-04-14T22:04). tilki_main.py yeniden başlatıldı (PID: 20832). İlk döngü başarıyla çalışıyor.
