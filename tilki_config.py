@@ -100,8 +100,8 @@ COINGECKO_IDS: Dict[str, str] = {
 }
 
 # === PORTFÖY AYARLARI ===
-BASLANGIC_SERMAYE_TL: float = 134000.0
-BASLANGIC_SERMAYE_USD: float = 3000.0
+BASLANGIC_SERMAYE_TL: float = 680000.0  # 20.000 USD equivalent
+BASLANGIC_SERMAYE_USD: float = 20000.0
 USD_TL_KUR: float = 34.0  # Varsayılan kur, anlık güncellenir
 
 # === RİSK YÖNETİMİ ===
